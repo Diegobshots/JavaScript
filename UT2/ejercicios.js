@@ -20,7 +20,9 @@ function fEjercicio1() {
 function fEjercicio2(){
     var nota = parseInt(prompt("Introduce tu nota: "));
     switch(nota){
-        case 0: case 1: case 2:
+        case 0:
+        case 1:
+        case 2:
             alert("Muy deficiente");
             break;
         case 3: 
@@ -31,10 +33,12 @@ function fEjercicio2(){
         case 6:
             alert("Bien");
             break;
-        case 7: case 8:
+        case 7:
+        case 8:
             alert("Notable");
             break;
-        case 9: case 10:
+        case 9:
+        case 10:
             alert("Sobresaliente");
             break;
         default:

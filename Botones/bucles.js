@@ -3,12 +3,14 @@ var botonFor = document.getElementById("botonFor");
 var botonWhile = document.getElementById("botonWhile");
 var botonDoWhile = document.getElementById("botonDoWhile");
 var botonCalcularMedia = document.getElementById("botonCalcularMedia");
+var botonCalcularMediaV3 = document.getElementById("botonCalcularMediaV3");
 
 //Eventos
 botonFor.addEventListener("click", fBucleFor);
 botonWhile.addEventListener("click", fBucleWhile);
 botonDoWhile.addEventListener("click", fBucleDoWhile);
 botonCalcularMedia.addEventListener("click", fCalcularMedia);
+botonCalcularMediaV3.addEventListener("click", fCalcularMediaV3);
 
 //Funciones
 function fBucleFor(){
@@ -34,10 +36,52 @@ function fBucleDoWhile(){
 
 function fCalcularMedia(){
     var total=0;
+    cadenaErrores="";
     for (var i=1; i<11; i++){
         
-        var numero = parseInt(prompt("Introduce el numero ".i));
-        total += numero;
+        var numero = prompt("Introduce el numero "+i);
+        if (isNaN(numero) || numero===" "){
+            if (numero ===" "){
+                cadenaErrores += "en posicion "+i +" introduciste un espacio, " ;
+            }else{
+                cadenaErrores += "en posicion "+i +" introduciste: "+numero+", " ;
+            }
+        }else{
+            total += parseInt(numero);
+        }
     }
-    console.log(total/10);
+    
+    media = numero/10;
+    if (cadenaErrores.length > 1){
+        alert("Error: "+cadenaErrores);
+    }else{
+        alert("La media es: "+media);
+    }
+    
+}
+
+function fCalcularMediaV3(){
+    var total=0;
+    cadenaErrores="";
+    for (var i=1; i<11; i++){
+        
+        var numero = prompt("Introduce 10 numeros separados por \";\" :");
+        if (isNaN(numero) || numero===" "){
+            if (numero ===" "){
+                cadenaErrores += "en posicion "+i +" introduciste un espacio, " ;
+            }else{
+                cadenaErrores += "en posicion "+i +" introduciste: "+numero+", " ;
+            }
+        }else{
+            total += parseInt(numero);
+        }
+    }
+    
+    media = numero/10;
+    if (cadenaErrores.length > 1){
+        alert("Error: "+cadenaErrores);
+    }else{
+        alert("La media es: "+media);
+    }
+    
 }

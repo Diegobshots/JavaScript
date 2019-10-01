@@ -1,10 +1,17 @@
 //Botones
 var boton1 = document.getElementById("e1");
 var boton2 = document.getElementById("e2");
+var boton3 = document.getElementById("ajedrez");
 
 //Eventos
 boton1.addEventListener("click",fEjercicio1);
 boton2.addEventListener("click",fEjercicio2);
+boton3.addEventListener("click", fAjedrez);
+
+//Tabla
+
+//var cabeza = "<table border=50>";
+//var pies = "</table>";
 
 //Funciones
 function fEjercicio1() {
@@ -45,4 +52,40 @@ function fEjercicio2(){
             alert("Solo parametros entre 0 y 10");
             break;
     }
+}
+
+function fAjedrez(){
+    functionPintarTabla();
+    
+    for (let i=0; i<64; i++){
+        
+        document.getElementById(i).innerHTML = i+1;
+    }
+    
+}
+
+function functionPintarTabla(){
+    //document.getElementById("tabla").innerHTML = cabeza;
+    var cadena = '<table border = 1>';
+    var contador = 0;
+    for (let a=0; a < 8 ; a++){
+        //document.getElementById("tabla").innerHTML += "<tr>";
+        cadena = cadena + '<tr>';
+
+        for (let b=0; b<8 ; b++){
+            //document.getElementById("tabla").innerHTML += "<td id='"+contador+"'>";
+            cadena = cadena + '<td id=' + contador +'></td>';
+            contador++;
+            //document.getElementById("tabla").innerHTML += "</td>";
+
+        }
+
+        //document.getElementById("tabla").innerHTML += "</tr>";
+        cadena = cadena + '</tr>';
+    }
+
+    cadena = cadena + '</table>';
+    document.getElementById("tabla").innerHTML = cadena;
+    //document.getElementById("tabla").innerHTML += pies;
+
 }

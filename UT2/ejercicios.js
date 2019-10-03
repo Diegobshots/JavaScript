@@ -65,27 +65,20 @@ function fAjedrez(){
 }
 
 function functionPintarTabla(){
-    //document.getElementById("tabla").innerHTML = cabeza;
     var cadena = '<table border = 1>';
     var contador = 0;
     for (let a=0; a < 8 ; a++){
-        //document.getElementById("tabla").innerHTML += "<tr>";
-        cadena = cadena + '<tr>';
 
+        cadena = cadena + '<tr>';
         for (let b=0; b<8 ; b++){
-            //document.getElementById("tabla").innerHTML += "<td id='"+contador+"'>";
+            
             cadena = cadena + '<td id=' + contador +'></td>';
             contador++;
-            //document.getElementById("tabla").innerHTML += "</td>";
-
         }
-
-        //document.getElementById("tabla").innerHTML += "</tr>";
         cadena = cadena + '</tr>';
     }
-
     cadena = cadena + '</table>';
     document.getElementById("tabla").innerHTML = cadena;
-    //document.getElementById("tabla").innerHTML += pies;
+ 
 
 }

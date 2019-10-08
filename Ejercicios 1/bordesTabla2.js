@@ -23,7 +23,7 @@ function fPintaTabla() {
     }
 }
 function rellenaTabla() {
-    
+    filaTabla = document.getElementsByTagName("tr"); //Ahora comprobamos si es el primer tr con esto no se como
     var lineaGenerica = document.getElementById("tr"+contadorFilas);
     lineaGenerica.firstElementChild.innerHTML = i;
 }

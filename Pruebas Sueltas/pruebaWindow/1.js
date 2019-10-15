@@ -9,11 +9,24 @@ boton2.addEventListener("click", fBotonMetodos);
 boton3.addEventListener("click", fBotonPropiedades);
 
 function fBoton() {
+    var inputs = " ";
     var valores = window.document.getElementsByTagName("input");
-    for(let i=0; i<=valores.length ; i++){
-        console.log(valores[i].value)
+    for(let i=0; i<valores.length ; i++){
+        inputs += valores[i].value + "%20";
     }
-    
+    var pagina = window.open("indexCopy.html?"+inputs);
+    var urlNueva = pagina.location.href;
+    arrayURL = urlNueva.split("?");
+    var contenido = arrayURL[1];
+    arrayInputs = contenido.split("%20");
+
+    for (let b=0 ; b<arrayInputs.length ; b++){
+        //aqui recorremos el array y lo escribimos en los inputs de la otra pagina
+        //pagina.document.getElementById.innerhtml = arrayInputs[b]
+    }
+    //Enviar por url string inputs
+    //Abrir pagina cargando inputs en los url (creo que con window.open)
+    //Dividir string obtenido y meterlo en el nuevo formulario
 }
 
 function fBotonMetodos() {

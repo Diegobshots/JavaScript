@@ -27,3 +27,4 @@ function rellenaTabla() {
     var lineaGenerica = document.getElementById("tr"+contadorFilas);
     lineaGenerica.firstElementChild.innerHTML = i;
 }
+//prueba

@@ -20,21 +20,40 @@ var quijote = document.getElementById("quijote").innerHTML;
 
 function fBotonA(){
     arrayQuijote = quijote.split("");
-    arrayQuijote[0].toUpperCase();
-    for (i=0; i<arrayQuijote.length; i++){
-        document.getElementById("quijote").innerHTML += arrayQuijote[i];
+
+    arrayQuijote[0] = arrayQuijote[0].toLocaleUpperCase();
+    var tipoOracion=arrayQuijote[0];
+    for (i=1; i<arrayQuijote.length; i++){
+        tipoOracion += arrayQuijote[i].toLowerCase();
     }
-    //Esto no funciona ni harto vino
+    document.getElementById("quijote").innerHTML = tipoOracion;
+    
 }
 function fBotonB(){
     quijote = quijote.toLowerCase();
     document.getElementById("quijote").innerHTML = quijote;
 }
 function fBotonC(){
-    
+    arrayQuijote = quijote.split("");
+    var tipoMayusculas="";
+    for (i=0; i<arrayQuijote.length; i++){
+        tipoMayusculas += arrayQuijote[i].toLocaleUpperCase();
+    }
+    document.getElementById("quijote").innerHTML = tipoMayusculas;
 }
 function fBotonD(){
-    
+    arrayQuijote = quijote.split("");
+    arrayQuijote[0] = arrayQuijote[0].toLocaleUpperCase();
+    var tipoPrimMayus=arrayQuijote[0];
+    for (i=1; i<arrayQuijote.length; i++){
+        if(arrayQuijote[i]=== " "){
+            tipoPrimMayus += " ";
+            tipoPrimMayus += arrayQuijote[i+1].toLocaleUpperCase();
+        }else{
+            tipoPrimMayus += arrayQuijote[i];
+        }
+    }
+    document.getElementById("quijote").innerHTML = tipoPrimMayus;
 }
 function fBotonE(){
     

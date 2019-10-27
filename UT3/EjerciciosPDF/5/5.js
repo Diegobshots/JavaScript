@@ -49,6 +49,7 @@ function fBotonD(){
         if(arrayQuijote[i]=== " "){
             tipoPrimMayus += " ";
             tipoPrimMayus += arrayQuijote[i+1].toLocaleUpperCase();
+            i++;
         }else{
             tipoPrimMayus += arrayQuijote[i];
         }
@@ -56,5 +57,24 @@ function fBotonD(){
     document.getElementById("quijote").innerHTML = tipoPrimMayus;
 }
 function fBotonE(){
+    arrayQuijote = quijote.split("");
+    arrayQuijote[0] = arrayQuijote[0].toLocaleUpperCase();
+    var tipoIntercaladas=arrayQuijote[0];
+    intercalada = true;
+    for (i=1; i<arrayQuijote.length; i++){
+        if(arrayQuijote[i] != " " && arrayQuijote[i] != "," && arrayQuijote[i] != "."){
+            if (intercalada){
+                tipoIntercaladas += arrayQuijote[i].toLowerCase();
+                intercalada = false;
+            }else{
+                tipoIntercaladas += arrayQuijote[i].toLocaleUpperCase();
+                intercalada = true;
+            }
+        }else{
+            tipoIntercaladas += arrayQuijote[i];
+        }
+        
     
+    }
+    document.getElementById("quijote").innerHTML = tipoIntercaladas;
 }

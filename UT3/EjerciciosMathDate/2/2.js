@@ -9,7 +9,7 @@ function fBoton() {
     let navidad = new Date(hoy.getFullYear(),11,25)
     let contador = 0;
     while(hoy < navidad ){
-        hoy.setDate(hoy.getDate()+1)
+        hoy.setDate(hoy.getDate()+1);
         contador++;
     }
     console.log(contador);

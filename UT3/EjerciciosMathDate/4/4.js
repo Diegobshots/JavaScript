@@ -6,8 +6,6 @@ boton.addEventListener("click",fBoton);
 
 //funciones
 function fBoton() {
-    hoy = new Date();
-    let opciones = {weekday: "long", year: "numeric", month: "long", day: "numeric"};
-    let opcionesHora = {hour: "numeric", hour12:"false"}
-    console.log(hoy.toLocaleDateString("es-ES", opciones)+".Hora actual: "+hoy.toLocaleTimeString("es-ES", opcionesHora)+" :"+hoy.getMinutes()+" :"+hoy.getSeconds());
+    reloj = document.getElementById("h2");
+    //window.setInterval(webkitURL = URL new(4.html));
 }

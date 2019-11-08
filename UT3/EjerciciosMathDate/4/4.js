@@ -6,6 +6,14 @@ boton.addEventListener("click",fBoton);
 
 //funciones
 function fBoton() {
+    let actualizacion = setInterval(reloj, 1000);
+    
+}
+function reloj(){
     reloj = document.getElementById("h2");
-    //window.setInterval(webkitURL = URL new(4.html));
+    
+    hoy = new Date();
+    hora = hoy.toLocaleTimeString();
+    
+    document.getElementById("reloj").innerHTML = hora;
 }

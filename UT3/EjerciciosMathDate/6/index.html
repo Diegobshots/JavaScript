@@ -5,9 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ejercicio 6</title>
+    <style>
+        .contenedor{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            padding-top: 50px;
+        }
+        .numero{
+            border-radius: 200px 200px 200px 200px;
+            -moz-border-radius: 200px 200px 200px 200px;
+            -webkit-border-radius: 200px 200px 200px 200px;
+            border: 1px solid #707070;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: space-evenly;
+            font-size: 50px;
+        }
+        p{
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="contenedor">
+        <div class="numero"><p id="numero1"></p></div>
+        <div class="numero"><p id="numero2"></p></div>
+        <div class="numero"><p id="numero3"></p></div>
+        <div class="numero"><p id="numero4"></p></div>
+        <div class="numero"><p id="numero5"></p></div>
+        <div class="numero"><p id="numero6"></p></div>
+    </div>
+    <button id="boton">Ver Bonoloto</button>
     <script src="6.js"></script>
 </body>
 </html>

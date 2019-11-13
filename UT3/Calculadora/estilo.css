@@ -1,0 +1,83 @@
+
+body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, rgb(255, 148, 49), rgb(174, 0, 209));
+
+}
+@font-face {
+    font-family: fuenteCalculadora;
+    src: url(fuentes/Calculator.ttf);
+  }
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: 600px;
+    height: 800px;
+    border: 1px solid;
+    background-color: white;
+    border-radius: 33px 33px 33px 33px;
+    -moz-border-radius: 33px 33px 33px 33px;
+    -webkit-border-radius: 33px 33px 33px 33px;
+    border: 0px none #000000
+    
+}
+h1{
+    color: white;
+    font-size: 75px;
+    font-family: 'Amatic SC';
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+.pantalla{
+    width: 90%;
+    height: 15%;
+    margin-top: 0;
+    margin-bottom: 10%;
+    font-family: fuenteCalculadora;
+    font-size: 50px;
+    -webkit-box-shadow: 0px 0px 23px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 23px -9px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 23px -9px rgba(0,0,0,0.75);
+    border-radius: 22px 22px 22px 22px;
+    -moz-border-radius: 22px 22px 22px 22px;
+    -webkit-border-radius: 22px 22px 22px 22px;
+    text-align: center;
+    
+}.teclado{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: auto;
+    width: 90%;
+}
+.teclado button{
+    background-color: white;
+    width: 95px;
+    height: 95px;
+    margin-left: 7px;
+    margin-right: 7px;
+    border-radius: 200px 200px 200px 200px;
+    -moz-border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+    -webkit-box-shadow: 0px 0px 23px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 23px -9px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 23px -9px rgba(0,0,0,0.75);
+    outline: none;
+    font-family: fuenteCalculadora;
+    font-size: 30px;
+}
+.teclado button:after{
+    background-color: grey;
+}

@@ -14,15 +14,15 @@ let mas = document.getElementById("mas");
 let menos = document.getElementById("menos");
 let reset = document.getElementById("reset");
 
-
-let fBotonUno = () => pantalla.innerHTML += 1;
-uno.addEventListener("click", fBotonUno);
-
-let fBotonDos = () => pantalla.innerHTML += 2;
-dos.addEventListener("click", fBotonDos);
-
-let fBotonTres = () => pantalla.innerHTML += 3;
-tres.addEventListener("click", fBotonTres);
+//let fBoton = (numero) => pantalla.innerHTML += numero;
+function fBoton(numero){ // me cago en mi estampa
+    valor = 0;
+    numero.innerHTML = valor;
+    pantalla.innerHTML += valor;
+}
+uno.addEventListener("click", fBoton(uno));
+dos.addEventListener("click", fBoton(2));
+tres.addEventListener("click", fBoton(3));
 
 let fBotonCuatro = () => pantalla.innerHTML += 4;
 cuatro.addEventListener("click", fBotonCuatro);

@@ -55,6 +55,8 @@ body{
 }
 .ahorcado{
     padding-left: 50px;
+    width: auto;
+    
 }
 .ahorcado img{
     width: 100%;

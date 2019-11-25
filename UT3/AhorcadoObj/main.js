@@ -1,3 +1,5 @@
+//Inicializacion de las variables
+
 let palabra = document.getElementById("palabra");
 let letrasFallidas = document.getElementById("letrasFallidas");
 let ahorcado = document.getElementById("ahorcado");
@@ -11,7 +13,7 @@ var juego ={
     letra: "",
     letraMal: "",
     solucion: "",
-    fallo: "", //detecta si la letra introducida fue un fallo se inicializa en la funciona true, es decir, se presupone un fallo
+    fallo: "", //booleano que detecta si la letra introducida fue un fallo se inicializa en la funciona true, es decir, se presupone un fallo
     intentos: 0,
     palabraAdivinar: arrayPalabras[posicionAleatoria],  
     comprobar : function comprueba(){
@@ -52,23 +54,27 @@ var juego ={
     },
     pintaAhorcado : function pintarAhorcado(){
         ahorcado.innerHTML = `<img src='img/${this.intentos}.png' alt='ahorcado'>`;
+    },
+    juega :function jugar(eventoObj){
+        var caracter = String.fromCharCode(eventoObj.which);
+        juego.letra = caracter;
+        juego.comprobar();
+        juego.pintaAhorcado();
+        juego.pintaSolucion();
+        juego.pintaFallos();
     }
 };
 
 
+//******************* */
+//Inicio del programa
+//******************* */
 juego.pintaHuecos();
 juego.pintaSolucion();
 juego.pintaAhorcado();
-
-//Funcion que he cogido de internet para capturar teclado
 window.onload = function() {
-    document.onkeypress = jugar;
+    document.onkeypress = juego.juega;
 }
-function jugar(eventoObj){
-    var caracter = String.fromCharCode(eventoObj.which);
-    juego.letra = caracter;
-    juego.comprobar();
-    juego.pintaAhorcado();
-    juego.pintaSolucion();
-    juego.pintaFallos();
-}
+
+
+

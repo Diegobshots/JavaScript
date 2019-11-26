@@ -36,7 +36,7 @@ var juego ={
         }
         this.solucion = palabraComprobada;
         if(this.fallo){
-            this.intentos++; //cada vez que el usuario haya fallado le sumamamos un intento
+            this.intentos++; //cada vez que el usuario haya fallado le sumamos un intento
         }
 
     },

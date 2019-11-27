@@ -61,6 +61,7 @@ nueve.addEventListener("click", fBotonNueve);
 let fBotonCero = () => pantalla.innerHTML += 0;
 cero.addEventListener("click", fBotonCero);
 
+//intenta meter estas funciones como metodos de la calculadora
 let fBotonMas = () =>{
     calculadora.numero1 = pantalla.innerHTML;
     pantalla.innerHTML = "";

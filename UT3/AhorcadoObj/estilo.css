@@ -68,10 +68,6 @@ body{
     font-family: fuenteCapital;
     font-size: 120px;
     color: red;
-    border-radius: 0px 0px 0px 0px;
-    -moz-border-radius: 0px 0px 0px 0px;
-    -webkit-border-radius: 0px 0px 0px 0px;
-    border: 11px dotted #ff0000;
     transform: rotate(-20deg);
     top: 30%;
     left: 15%;

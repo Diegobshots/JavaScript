@@ -7,6 +7,7 @@ let arrayPalabras = ["patata", "caracol", "judia", "pelota",
     "reloj", "funcion", "caballo", "gorra", "ordenador", "lingote"
 ];
 let posicionAleatoria = Math.floor(Math.random() * arrayPalabras.length);
+let fallo = document.getElementById("fallo");
 
 //objeto juego:
 var juego ={
@@ -53,15 +54,28 @@ var juego ={
         letrasFallidas.innerHTML += this.letraMal;
     },
     pintaAhorcado : function pintarAhorcado(){
-        ahorcado.innerHTML = `<img src='img/${this.intentos}.png' alt='ahorcado'>`;
+        if(this.intentos <= 6){
+            ahorcado.innerHTML = `<img src='img/${this.intentos}.png' alt='ahorcado'>`;
+        }else{
+            ahorcado.innerHTML = `<img src='img/6.png' alt='ahorcado'>`;
+        }
     },
-    juega :function jugar(eventoObj){
-        var caracter = String.fromCharCode(eventoObj.which);
-        juego.letra = caracter;
-        juego.comprobar();
-        juego.pintaAhorcado();
-        juego.pintaSolucion();
-        juego.pintaFallos();
+    acaba : function acabar(){
+        if(this.intentos >= 6){
+            fallo.innerHTML = "HAS PERDIDO";
+        }
+    },
+    juega : function jugar(eventoObj){
+        
+            var caracter = String.fromCharCode(eventoObj.which);
+            juego.letra = caracter;
+            juego.comprobar();
+            juego.pintaAhorcado();
+            juego.pintaSolucion();
+            juego.pintaFallos();
+            juego.acaba();
+        
+        
     }
 };
 
@@ -72,9 +86,15 @@ var juego ={
 juego.pintaHuecos();
 juego.pintaSolucion();
 juego.pintaAhorcado();
+
 window.onload = function() {
-    document.onkeypress = juego.juega;
+     document.onkeypress = juego.juega;
 }
+
+
+
+
+
 
 
 

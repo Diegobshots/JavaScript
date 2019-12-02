@@ -15,83 +15,137 @@ let igual = document.getElementById("igual");
 let mas = document.getElementById("mas");
 let menos = document.getElementById("menos");
 let reset = document.getElementById("reset");
+let division = document.getElementById("division");
+let multiplicacion = document.getElementById("multiplicacion");
+let inverso = document.getElementById("inverso");
+let coma = document.getElementById("coma");
 
 
 //Creamos el objeto con el que vamos a trabajar
 var calculadora ={
-    numero1:0,
-    numero2:0,
-    operador:"",
+    numero1: 0,
+    numero2: 0,
+    operador: "",
+    decimal: false, //para controlar si se ha introducido una coma y evitar su repeticion
     sumar : function sumaNumeros(){
-        return parseInt(this.numero1)+parseInt(this.numero2);
+        return parseFloat(this.numero1)+parseFloat(this.numero2);
     },
     restar : function sumaNumeros(){
-        return parseInt(this.numero1)-parseInt(this.numero2);
+        return parseFloat(this.numero1)-parseFloat(this.numero2);
+    },
+    dividir : function divideNumeros(){
+        return parseFloat(this.numero1)/parseFloat(this.numero2);
+    },
+    multiplicar : function multiplicaNumeros(){
+        return parseFloat(this.numero1)*parseFloat(this.numero2);
+    },
+    invertir : function invierteNumero(){
+        return 1/parseFloat(this.numero1);
     },
     igual : function resultado(){
         pantallaOper.innerHTML = "";
         calculadora.numero2 = pantalla.innerHTML;
         switch (calculadora.operador){
         case "+":
-            pantalla.innerHTML = calculadora.sumar();
+            if(isNaN(calculadora.sumar())){
+                pantalla.innerHTML = "ERROR";
+            }else{
+                pantalla.innerHTML = calculadora.sumar();
+            }
             break;
         case "-":
-            pantalla.innerHTML = calculadora.restar();
+            if(isNaN(calculadora.restar())){
+                pantalla.innerHTML = "ERROR";
+            }else{
+                pantalla.innerHTML = calculadora.restar();
+            }
+            break;
+        case "/":
+            if(isNaN(calculadora.dividir())){
+                pantalla.innerHTML = "ERROR";
+            }else{
+                pantalla.innerHTML = calculadora.dividir();
+            }
+            break;
+        case "*":
+            pantalla.innerHTML = calculadora.multiplicar();
+            break;
+        case "1/x":
+            pantalla.innerHTML = calculadora.invertir();
             break;
         }
     },
     botonMenos : function menos(){
+        calculadora.decimal = false; //esto nos permite meter comas en el segundo numero
         calculadora.numero1 = pantalla.innerHTML;
         pantalla.innerHTML = "";
         pantallaOper.innerHTML = "-";
         calculadora.operador = "-";
     },
     botonMas : function mas(){
+        calculadora.decimal = false; 
         calculadora.numero1 = pantalla.innerHTML;
         pantalla.innerHTML = "";
         pantallaOper.innerHTML = "+";
         calculadora.operador = "+";
     },
+    botonDivision : function entre(){
+        calculadora.decimal = false;
+        calculadora.numero1 = pantalla.innerHTML;
+        pantalla.innerHTML = "";
+        pantallaOper.innerHTML = "÷";
+        calculadora.operador = "/";
+    },
+    botonMultiplicacion : function por(){
+        calculadora.decimal = false;
+        calculadora.numero1 = pantalla.innerHTML;
+        pantalla.innerHTML = "";
+        pantallaOper.innerHTML = "X";
+        calculadora.operador = "*";
+    },
+    botonInverso : function invertido(){
+        calculadora.decimal = true; //impedimos que meta comas porque el resultado siempre es decimal
+        calculadora.numero1 = pantalla.innerHTML;
+        pantallaOper.innerHTML = "1/"+calculadora.numero1;
+        calculadora.operador = "1/x";
+    },
+    botonComa : function numComa(){
+        if(calculadora.decimal == false){ //aqui controlo que solo se pueda introducir una coma
+            pantalla.innerHTML += ".";
+            calculadora.decimal = true;
+        }
+        
+    },
     botonCero : function numCero(){pantalla.innerHTML += 0},
     botonUno : function numUno(){pantalla.innerHTML += 1},
     botonDos : function numDos(){pantalla.innerHTML += 2},
     botonTres : function numTres(){pantalla.innerHTML += 3},
-    botonCuatro : function numCuatro(){pantalla.innerHTML += 4}
-    
-
+    botonCuatro : function numCuatro(){pantalla.innerHTML += 4},
+    botonCinco : function numCinco(){pantalla.innerHTML += 5},
+    botonSeis : function numSeis(){pantalla.innerHTML += 6},
+    botonSiete : function numSiete(){pantalla.innerHTML += 7},
+    botonOcho : function numOcho(){pantalla.innerHTML += 8},
+    botonNueve : function numNueve(){pantalla.innerHTML += 9}
 };
 
-//Cada boton tiene una funcion que modifica el objeto o llama a un método del objeto 
-
-
-
-
-
-
-
-let fBotonCinco = () => pantalla.innerHTML += 5;
-cinco.addEventListener("click", fBotonCinco);
-
-let fBotonSeis = () => pantalla.innerHTML += 6;
-seis.addEventListener("click", fBotonSeis);
-
-let fBotonSiete = () => pantalla.innerHTML += 7;
-siete.addEventListener("click", fBotonSiete);
-
-let fBotonOcho = () => pantalla.innerHTML += 8;
-ocho.addEventListener("click", fBotonOcho);
-
-let fBotonNueve = () => pantalla.innerHTML += 9;
-nueve.addEventListener("click", fBotonNueve);
-
-
-
-//Eventos click
+//Eventos click numeros
+nueve.addEventListener("click", calculadora.botonNueve);
+ocho.addEventListener("click", calculadora.botonOcho);
+siete.addEventListener("click", calculadora.botonSiete);
+seis.addEventListener("click", calculadora.botonSeis);
+cinco.addEventListener("click", calculadora.botonCinco);
 cuatro.addEventListener("click", calculadora.botonCuatro)
 tres.addEventListener("click", calculadora.botonTres)
 dos.addEventListener("click", calculadora.botonDos);
 uno.addEventListener("click", calculadora.botonUno);
 cero.addEventListener("click", calculadora.botonCero);
+
+//Eventos click operadores
 mas.addEventListener("click", calculadora.botonMas);
 menos.addEventListener("click", calculadora.botonMenos);
 igual.addEventListener("click", calculadora.igual);
+division.addEventListener("click", calculadora.botonDivision);
+multiplicacion.addEventListener("click", calculadora.botonMultiplicacion);
+inverso.addEventListener("click", calculadora.botonInverso);
+coma.addEventListener("click", calculadora.botonComa);
+

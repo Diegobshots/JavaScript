@@ -33,7 +33,6 @@ body{
     flex-direction: column;
     justify-content: center;
     background-color: #ffffff;
-    background-image: url("https://www.transparenttextures.com/patterns/brilliant.png");
     -webkit-box-shadow: 4px -4px 37px -22px rgba(0,0,0,0.75);
     -moz-box-shadow: 4px -4px 37px -22px rgba(0,0,0,0.75);
     box-shadow: 4px -4px 37px -22px rgba(0,0,0,0.75);
@@ -48,6 +47,7 @@ body{
     font-size: 50px;
 }
 .letrasFallidas{
+    padding: 40px;
     font-family: fuenteTexto;
     font-weight: 100;
     font-size: 25px;

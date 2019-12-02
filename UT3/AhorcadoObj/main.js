@@ -61,8 +61,10 @@ var juego ={
         }
     },
     acaba : function acabar(){
-        if(this.intentos >= 6){
+        if(this.intentos == 6){
             fallo.innerHTML = "HAS PERDIDO";
+        }else if(this.intentos > 6){
+            location.reload();
         }
     },
     juega : function jugar(eventoObj){
@@ -73,9 +75,7 @@ var juego ={
             juego.pintaAhorcado();
             juego.pintaSolucion();
             juego.pintaFallos();
-            juego.acaba();
-        
-        
+            juego.acaba(); 
     }
 };
 

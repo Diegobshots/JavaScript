@@ -91,6 +91,4 @@ h1{
     font-family: fuenteCalculadora;
     font-size: 20px;
 }
-.teclado button:after{
-    background-color: grey;
-}
+

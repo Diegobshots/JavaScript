@@ -8,12 +8,14 @@ let arrayPalabras = ["patata", "caracol", "judia", "pelota",
 ];
 let posicionAleatoria = Math.floor(Math.random() * arrayPalabras.length);
 let fallo = document.getElementById("fallo");
+let acierto = document.getElementById("acierto");
+let instrucciones = document.getElementById("instrucciones");
 
 //objeto juego:
 var juego ={
-    letra: "",
+    letra: "", 
     letraMal: "",
-    solucion: "",
+    solucion: "", //inicialmente se rellena de _ y va completandose con letras
     fallo: "", //booleano que detecta si la letra introducida fue un fallo se inicializa en la funciona true, es decir, se presupone un fallo
     intentos: 0,
     palabraAdivinar: arrayPalabras[posicionAleatoria],  
@@ -41,7 +43,7 @@ var juego ={
         }
 
     },
-    pintaHuecos : function pintarHuecos(){
+    pintaHuecos : function pintarHuecos(){ //compara la palabra y rellena solucion con tantas _ como procedan
         
         for(let i=0; i< this.palabraAdivinar.length; i++){
             this.solucion += "_";
@@ -60,14 +62,29 @@ var juego ={
             ahorcado.innerHTML = `<img src='img/6.png' alt='ahorcado'>`;
         }
     },
-    acaba : function acabar(){
-        if(this.intentos == 6){
-            fallo.innerHTML = "HAS PERDIDO";
-        }else if(this.intentos > 6){
-            location.reload();
+    acaba : function acabar(){ //Comprueba si ha acabado
+        //gestiona si el usuario ha ganado o ha perdido mirando os intentos o si la palabra está resuelta
+        
+        switch(this.intentos){
+            case 6:
+                fallo.innerHTML = "HAS PERDIDO";
+                instrucciones.innerHTML = "(Pulsa cualquier tecla para continuar)";
+                this.intentos = 7;
+                break;
+            case 7, 8:
+                location.reload();
+                break;
+            default:
+                if(this.palabraAdivinar == this.solucion){
+                    acierto.innerHTML = "HAS GANADO";
+                    instrucciones.innerHTML = "(Pulsa cualquier tecla para continuar)";
+                    this.intentos=7;
+                    ahorcado.innerHTML = `<img src='img/ganado.png' alt='ahorcado'>`;
+                }
+                break;
         }
     },
-    juega : function jugar(eventoObj){
+    juega : function jugar(eventoObj){ //indice de comportamiento del juego
         
             var caracter = String.fromCharCode(eventoObj.which);
             juego.letra = caracter;
@@ -75,13 +92,13 @@ var juego ={
             juego.pintaAhorcado();
             juego.pintaSolucion();
             juego.pintaFallos();
-            juego.acaba(); 
+            juego.acaba();
     }
 };
 
 
 //******************* */
-//Inicio del programa
+//Inicio del programa //
 //******************* */
 juego.pintaHuecos();
 juego.pintaSolucion();

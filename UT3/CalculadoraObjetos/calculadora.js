@@ -1,4 +1,4 @@
-//Aqui captamos cada uno de los botones
+//Aqui capturamos cada uno de los botones
 let pantalla = document.getElementById("pantalla");
 let pantallaOper = document.getElementById("pantallaOper");
 let uno = document.getElementById("uno");
@@ -19,12 +19,14 @@ let division = document.getElementById("division");
 let multiplicacion = document.getElementById("multiplicacion");
 let inverso = document.getElementById("inverso");
 let coma = document.getElementById("coma");
+let opuesto = document.getElementById("opuesto");
 
 
 //Creamos el objeto con el que vamos a trabajar
 var calculadora ={
     numero1: 0,
     numero2: 0,
+    numeroAuxiliar: 0,
     operador: "",
     decimal: false, //para controlar si se ha introducido una coma y evitar su repeticion
     sumar : function sumaNumeros(){
@@ -114,7 +116,11 @@ var calculadora ={
             pantalla.innerHTML += ".";
             calculadora.decimal = true;
         }
-        
+    },
+    botonOpuesto : function numOpuesto(){
+        calculadora.numeroAuxiliar = pantalla.innerHTML;
+        calculadora.numeroAuxiliar *= -1;
+        pantalla.innerHTML = calculadora.numeroAuxiliar;
     },
     botonCero : function numCero(){pantalla.innerHTML += 0},
     botonUno : function numUno(){pantalla.innerHTML += 1},
@@ -128,7 +134,7 @@ var calculadora ={
     botonNueve : function numNueve(){pantalla.innerHTML += 9}
 };
 
-//Eventos click numeros
+//Eventos click para numeros
 nueve.addEventListener("click", calculadora.botonNueve);
 ocho.addEventListener("click", calculadora.botonOcho);
 siete.addEventListener("click", calculadora.botonSiete);
@@ -140,7 +146,7 @@ dos.addEventListener("click", calculadora.botonDos);
 uno.addEventListener("click", calculadora.botonUno);
 cero.addEventListener("click", calculadora.botonCero);
 
-//Eventos click operadores
+//Eventos click para operadores
 mas.addEventListener("click", calculadora.botonMas);
 menos.addEventListener("click", calculadora.botonMenos);
 igual.addEventListener("click", calculadora.igual);
@@ -148,4 +154,5 @@ division.addEventListener("click", calculadora.botonDivision);
 multiplicacion.addEventListener("click", calculadora.botonMultiplicacion);
 inverso.addEventListener("click", calculadora.botonInverso);
 coma.addEventListener("click", calculadora.botonComa);
+opuesto.addEventListener("click", calculadora.botonOpuesto)
 

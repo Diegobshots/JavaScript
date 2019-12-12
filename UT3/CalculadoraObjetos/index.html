@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Calculadora</title>
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="icons/css/solid.css">
+    <link rel="stylesheet" href="icons/css/fontawesome.css">
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
@@ -21,12 +23,12 @@
         </div>
         <div class="teclado">
             <button class="boton1">%</button>
-            <button class="boton2">√</button>
-            <button class="boton3">χ^2</button>
+            <button class="boton2" id="raiz">√</button>
+            <button class="boton3" id="cuadrado">χ^2</button>
             <button class="boton4" id="inverso">1⁄x</button>
-            <button class="boton5" id="reset">CE</button>
-            <button class="boton6" >C</button>
-            <button class="boton7"><=</button>
+            <button class="boton5" id="resetMemoria">CE</button>
+            <button class="boton6" id="reset">C</button>
+            <button class="boton7" id="borrar">🡠</button>
             <button class="boton8" id="division">÷</button>
             <button class="boton9 numero" id="siete">7</button>
             <button class="boton10 numero" id="ocho">8</button>
@@ -46,7 +48,15 @@
             <button class="boton24" id="igual">=</button>
         </div>
         <div class="tecladoCientifico">
-
+            
+            <div class="botones">
+                <button class="boton25" id="seno">sin</button>
+                <button class="boton26" id="coseno">cos</button>
+                <button class="boton27" id="tangente">tan</button>
+                <button class="boton28" id="cubo">χ^3</button>
+                <button class="boton29" id="potencia">xⁿ</button>
+            </div>
+            <div class="icono"><i class="fas fa-flask"></i></div>
         </div>
     </div>
     <script src="calculadora.js"></script>

@@ -75,7 +75,7 @@ h1{
     height: auto;
     width: 90%;
 }
-.teclado button{
+button{
     background-color: white;
     width: 65px;
     height: 65px;
@@ -91,4 +91,34 @@ h1{
     font-family: fuenteCalculadora;
     font-size: 20px;
 }
+.tecladoCientifico{
+    width: auto;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 2%;
+    left: -420px;
+    background-color: white;
+    border-radius: 0px 33px 33px 0px;
+    
+    -webkit-box-shadow: 10px 10px 23px -15px rgba(0,0,0,0.51);
+    -moz-box-shadow: 10px 10px 23px -15px rgba(0,0,0,0.51);
+    box-shadow: 10px 10px 23px -15px rgba(0,0,0,0.51);
+    border: 0px none #000000;
+    transition: .4s ease;
+}
+.tecladoCientifico:hover{
+    transform: translate(420px);
+    transition: .4s ease ;
+}
+.icono{
+    color: grey;
+    margin-left: 15px;
+    margin-right: 8px;
+
+}
+
 

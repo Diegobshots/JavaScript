@@ -14,13 +14,21 @@ let cero = document.getElementById("cero");
 let igual = document.getElementById("igual");
 let mas = document.getElementById("mas");
 let menos = document.getElementById("menos");
-let reset = document.getElementById("reset");
+let resetMemoria = document.getElementById("resetMemoria");
 let division = document.getElementById("division");
 let multiplicacion = document.getElementById("multiplicacion");
 let inverso = document.getElementById("inverso");
 let coma = document.getElementById("coma");
 let opuesto = document.getElementById("opuesto");
-
+let borrar = document.getElementById("borrar");
+let cuadrado = document.getElementById("cuadrado");
+let raiz = document.getElementById("raiz");
+let reset = document.getElementById("reset");
+let seno = document.getElementById("seno");
+let coseno = document.getElementById("coseno");
+let tangente = document.getElementById("tangente");
+let cubo = document.getElementById("cubo");
+let potencia = document.getElementById("potencia");
 
 //Creamos el objeto con el que vamos a trabajar
 var calculadora ={
@@ -43,6 +51,27 @@ var calculadora ={
     },
     invertir : function invierteNumero(){
         return 1/parseFloat(this.numero1);
+    },
+    elevarCuadrado : function elevaCuadrado(){
+        return parseFloat(Math.pow(this.numero1, 2));
+    },
+    raiz : function calculaRaiz(){
+        return parseFloat(Math.sqrt(this.numero1));
+    },
+    seno : function calculaSeno(){
+        return parseFloat(Math.sin(this.numero1));
+    },
+    coseno : function calculaCoseno(){
+        return parseFloat(Math.cos(this.numero1));
+    },
+    tangente : function calculaTangente(){
+        return parseFloat(Math.tan(this.numero1));
+    },
+    elevarCubo : function elevaCubo(){
+        return parseFloat(Math.pow(this.numero1, 3));
+    },
+    elevarPotencia : function elevaPotencia(){
+        return parseFloat(Math.pow(this.numero1, this.numero2));
     },
     igual : function resultado(){
         pantallaOper.innerHTML = "";
@@ -75,7 +104,29 @@ var calculadora ={
         case "1/x":
             pantalla.innerHTML = calculadora.invertir();
             break;
+        case "^2":
+            pantalla.innerHTML = calculadora.elevarCuadrado();
+            break;
+        case "raiz":
+            pantalla.innerHTML = calculadora.raiz();
+            break;
+        case "sin":
+            pantalla.innerHTML = calculadora.seno();
+            break;
+        case "cos":
+            pantalla.innerHTML = calculadora.coseno();
+            break;
+        case "tan":
+            pantalla.innerHTML = calculadora.tangente();
+            break;
+        case "^3":
+            pantalla.innerHTML = calculadora.elevarCubo();
+            break;
+        case "^":
+            pantalla.innerHTML = calculadora.elevarPotencia();
+            break;
         }
+
     },
     botonMenos : function menos(){
         calculadora.decimal = false; //esto nos permite meter comas en el segundo numero
@@ -122,6 +173,67 @@ var calculadora ={
         calculadora.numeroAuxiliar *= -1;
         pantalla.innerHTML = calculadora.numeroAuxiliar;
     },
+    botonBorrar : function borraNum(){
+        numeroAnterior = pantalla.innerHTML;
+        arrayNumeroanterior = numeroAnterior.split('');
+        numeroNuevo = "";
+        if(arrayNumeroanterior.pop() == "."){
+            calculadora.decimal = false;
+        }
+        for (i=0 ; i< arrayNumeroanterior.length; i++){
+            numeroNuevo += arrayNumeroanterior[i];
+        }
+        pantalla.innerHTML = numeroNuevo;
+    },
+    botonCuadrado : function numCuadrado(){
+        calculadora.decimal = false;
+        calculadora.numero1 = pantalla.innerHTML;
+        pantallaOper.innerHTML = calculadora.numero1+"^2";
+        calculadora.operador="^2";
+    },
+    botonRaiz : function numRaiz(){
+        calculadora.numero1 = pantalla.innerHTML;
+        pantallaOper.innerHTML = "√"+calculadora.numero1;
+        calculadora.operador="raiz";
+    },
+    botonReset : function resetNum(){
+        calculadora.decimal = false;
+        pantalla.innerHTML = "";
+    },
+    botonSeno : function sinNum(){
+        calculadora.decimal = true;
+        calculadora.numero1 = pantalla.innerHTML;
+        pantalla.innerHTML = "";
+        pantallaOper.innerHTML = "sin("+calculadora.numero1+")";
+        calculadora.operador = "sin";
+    },
+    botonCoseno : function cosNum(){
+        calculadora.decimal = true;
+        calculadora.numero1 = pantalla.innerHTML;
+        pantalla.innerHTML = "";
+        pantallaOper.innerHTML = "cos("+calculadora.numero1+")";
+        calculadora.operador = "cos";
+    },
+    botonTangente : function tanNum(){
+        calculadora.decimal = true;
+        calculadora.numero1 = pantalla.innerHTML;
+        pantalla.innerHTML = "";
+        pantallaOper.innerHTML = "tan("+calculadora.numero1+")";
+        calculadora.operador = "tan";
+    },
+    botonCubo : function numCubo(){
+        calculadora.decimal = false;
+        calculadora.numero1 = pantalla.innerHTML;
+        pantallaOper.innerHTML = calculadora.numero1+"^3";
+        calculadora.operador="^3";
+    },
+    botonPotencia : function numPotencia(){
+        calculadora.decimal = false; //esto nos permite meter comas en el segundo numero
+        calculadora.numero1 = pantalla.innerHTML;
+        pantalla.innerHTML = "";
+        pantallaOper.innerHTML = calculadora.numero1+"ⁿ";
+        calculadora.operador = "^";
+    },
     botonCero : function numCero(){pantalla.innerHTML += 0},
     botonUno : function numUno(){pantalla.innerHTML += 1},
     botonDos : function numDos(){pantalla.innerHTML += 2},
@@ -154,5 +266,15 @@ division.addEventListener("click", calculadora.botonDivision);
 multiplicacion.addEventListener("click", calculadora.botonMultiplicacion);
 inverso.addEventListener("click", calculadora.botonInverso);
 coma.addEventListener("click", calculadora.botonComa);
-opuesto.addEventListener("click", calculadora.botonOpuesto)
+opuesto.addEventListener("click", calculadora.botonOpuesto);
+borrar.addEventListener("click", calculadora.botonBorrar);
+cuadrado.addEventListener("click", calculadora.botonCuadrado);
+raiz.addEventListener("click", calculadora.botonRaiz);
+reset.addEventListener("click", calculadora.botonReset);
+resetMemoria.addEventListener("click", calculadora.botonReset);
+seno.addEventListener("click", calculadora.botonSeno);
+coseno.addEventListener("click", calculadora.botonCoseno);
+tangente.addEventListener("click", calculadora.botonTangente);
+cubo.addEventListener("click", calculadora.botonCubo);
+potencia.addEventListener("click", calculadora.botonPotencia);
 

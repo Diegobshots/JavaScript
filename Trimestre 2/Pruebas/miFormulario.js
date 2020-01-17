@@ -1,5 +1,5 @@
-var formulario = document.getElementById("miFormulario");
-var boton = document.getElementById("ver");
+var formulario = document.getElementById("nombre").value;
+var boton = document.getElementById("verResumen");
 
 boton.addEventListener("click", fBoton);
 

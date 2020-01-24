@@ -1,12 +1,10 @@
-//objeto expresion regular
-
 var inputTelefono = document.getElementById("telefono");
 var inputCorreo = document.getElementById("correo");
+var inputIP = document.getElementById("direccionIP");
 var boton = document.getElementById("enviar");
 
 
 var formulario = {
-    
     
     evaluarTelefono : function (compruebaTelefono){
         telefono = document.getElementById("telefono").value;
@@ -27,12 +25,20 @@ var formulario = {
         }else{
             inputCorreo.style.border = "2px solid red";
         }
+    },
+    evaluarIP : function (compruebaIP){
+        ip = document.getElementById("direccionIP").value;
+        expresion = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+        if (expresion.test(ip)){
+            inputIP.style.border = "2px solid green";
+        }else{
+            inputIP.style.border = "2px solid red";
+        }
     }
 
 }
 
-
 //eventos
 inputTelefono.addEventListener("focusout", formulario.evaluarTelefono);
 inputCorreo.addEventListener("focusout", formulario.evaluarCorreo);
-boton.addEventListener("click", formulario.evaluar);
+inputIP.addEventListener("focusout", formulario.evaluarIP);

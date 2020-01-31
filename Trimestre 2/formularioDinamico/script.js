@@ -16,6 +16,8 @@ class Formulario{
         //concatena cabecera del formulario
         //bucle recorre vector elementos y los concatena en un array
         //pie del formulario
+        var cabeceraFormulario = document.create("<form action='' method='post' id=''>");
+        contenedor.appendChild(cabeceraFormulario);
     }
 }
 
@@ -39,3 +41,4 @@ class Elemento{
     }
 }
 let formulario1 = new Formulario(1)
+formulario1.pintarFormulario();

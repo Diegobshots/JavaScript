@@ -1,4 +1,31 @@
 {
-    nombre: Diego,
-    
+    "nombre": "Diego",
+    "apellidos": "Blanco Lopez",
+    "correo": "diegoclaseinfor@gmail.com",
+    "telefono": 660764358,
+    "permiso": "B2",
+    "idiomas": [
+        {
+            "nombre": "ingles",
+            "nivel": "medio",
+            "titulo": "B2"
+        },
+        {
+            "nombre": "aleman",
+            "nivel": "bajo",
+            "titulo": "no"
+        }
+    ],
+    "estudios": [
+        {
+            "titulo": "ASIR",
+            "anioFin": 2017,
+            "experiencia en sector": "si"
+        },
+        {
+            "titulo": "DAW",
+            "anioFin": 2020,
+            "experiencia en sector": "no"
+        }
+    ]
 }

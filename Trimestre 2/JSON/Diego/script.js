@@ -1,13 +1,22 @@
-var botonEnviar = document.getElementById("botonEnviar");
-var nombre = document.getElementById("nombre");
-var apellidos = document.getElementById("apellidos");
-var correo = document.getElementById("correo");
-var container = document.getElementById("container");
 
-botonEnviar.addEventListener("click", fBoton);
 
-function fBoton(){
-    var json = "";
-    json += nombre.value;
-    console.log(json);
-}
+
+  /**
+   * var container = document.getElementById("container");
+
+var requestURL = 'cv.json';
+
+var request = new XMLHttpRequest();
+request.open(document, requestURL);
+
+request.responseType = 'json';
+request.send();
+
+request.onload = function() {
+    var curriculum = request.response;
+    console.log(curriculum);
+  }
+   */
+
+  var json = require('cv.json');
+  console.log(json);

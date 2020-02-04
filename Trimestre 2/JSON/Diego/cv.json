@@ -1,9 +1,9 @@
 {
     "nombre": "Diego",
-    "apellidos": "Blanco Lopez",
+    "apellidos": "Blanco López",
     "correo": "diegoclaseinfor@gmail.com",
     "telefono": 660764358,
-    "permiso": "B2",
+    "permiso": "Carnet de conducir",
     "idiomas": [
         {
             "nombre": "ingles",

@@ -1,14 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     
-    <div class="container" id="container"></div>
+
+    <div class="container contact">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="contact-info">
+                    <img class="rounded-circle imagen justify-center" src="img/yo.jpg" alt="image" />
+                    <h3 class="text-white text-center">Curriculum</h3>
+                    
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="contact-form">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="fname">Nombre:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="fname"  name="fname" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="lname">Apellidos:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="lname"  readonly="readonly"
+                                name="lname">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="email">Email:</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="email"  name="email" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="email">Teléfono:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="telefono"  name="telefono" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="comment">Comment:</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default">Contratar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
+
 </html>

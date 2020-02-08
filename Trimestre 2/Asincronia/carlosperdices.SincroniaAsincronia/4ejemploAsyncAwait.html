@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* Disponible en versión ES7 o ES2016 */
+        /* Notas:
+                Funcionan con promesas
+                Async/Await solo funciona dentro de funciones asíncronas.   
+                    Sintaxis: async function nombre_de_funcion () {}
+                Await siempre dentro de la función async function, sino error
+                Recomendable que dentro de la función async tengamos
+                    try ... catch
+                Cuidado con la compatibilidad, no funciona en navegadores antiguos.
+
+        */
+
+        const x = 10;
+        const y = 20;
+
+        function suma (a, b) {
+            return new Promise(function (resolve, reject) {
+                setTimeout(() => {
+                    resolve(a + b);
+                }, 2000);
+                
+            })
+        }
+        function restar (valor, cantidad) {
+            return new Promise(function (resolve, reject) {
+                setTimeout(() => {
+                    resolve(valor - cantidad);    
+                }, 2000);
+                
+            })
+        }
+
+        function esMayorACero (valor) {
+            return new Promise(function (resolve, reject) {
+                setTimeout(() => {
+                    if (valor > 0) {
+                       resolve('Mayor a cero')
+                    } else {
+                        resolve('Menor a cero')
+                    }                    
+                }, 2000);
+
+            })
+        }
+
+        // función asíncrona con "async"
+        async function mayorACero () {
+            try {
+                let resultado_de_suma = await suma(x, y);                 // Resultado: 30
+                let resultado_de_resta = await restar(resultado_de_suma, 15);  // Resultado: 15
+                let respuesta = await esMayorACero(resultado_de_resta);        // Resultado: 'Mayor a cero'
+                console.log("Resultado suma", resultado_de_suma);
+                console.log("Resultado de la resta", resultado_de_resta);
+                console.log("La respuesta es",respuesta);
+
+            }
+            catch (err) {
+                // manejo de errores
+            }
+        }
+        console.log("Comenzando async/await");
+        mayorACero() // Resultado: 'Mayor a cero'
+    </script>
+</body>
+</html>

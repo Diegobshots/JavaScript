@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Ejemplo 1. Fichero JSON
+        //Minuto 42
+
+        const request = new XMLHttpRequest();
+        request.onreadystatechange = function(aEvt) {
+            console.log("request.readyState",request.readyState);
+            console.log("request.status",request.status);
+            
+            if (request.readyState == 4) {
+                //if (request.status == 200) {
+                    const response = request.responseText;
+                    console.log(JSON.parse(response));
+                //}else {
+                //    console.log ("Error cargando la página");
+                //}  
+            }
+        };
+        request.open('GET', 'file://file.json', true); 
+        request.send();        
+        
+        //Ejemplo 2
+        /*
+        var req = new XMLHttpRequest();
+        req.open('GET', 'http://www.mozilla.org/', false); 
+        req.send(null);
+        if (req.status == 200) {
+            dump(req.responseText);
+            console.log (req.responseText);
+        }
+        */
+    </script>
+</body>
+</html>

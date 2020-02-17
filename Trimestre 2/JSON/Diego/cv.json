@@ -6,12 +6,12 @@
     "permiso": "Carnet de conducir - B2",
     "idiomas": [
         {
-            "nombre": "ingles",
+            "nombre": "Inglés",
             "nivel": "medio",
             "titulo": "B2"
         },
         {
-            "nombre": "aleman",
+            "nombre": "Alemán",
             "nivel": "bajo",
             "titulo": "no"
         }

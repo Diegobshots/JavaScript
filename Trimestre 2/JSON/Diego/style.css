@@ -1,9 +1,13 @@
+
 body{
     background-color: #25274d;
+    padding: 15%;
+
+    
 }
 .contact{
-    padding: 4%;
     height: 100vh;
+    
 }
 .col-md-3{
     /*background-image: linear-gradient(to right top, #ff9b00, #ff695d, #ff52a8, #c76be6, #0085ff);*/
@@ -45,4 +49,5 @@ body{
 }
 .titulo{
     font-family: 'Raleway', sans-serif;
+    font-size: 2vw;
 }

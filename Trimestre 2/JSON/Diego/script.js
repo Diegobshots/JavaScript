@@ -1,12 +1,14 @@
-var btn = document.getElementById("botonaco");
+let btn = document.getElementById("botonaco");
 
-var app = {
-  conexion: function cenexion() {
+let app = {
+  contratar: function contratar(){
+    document.body.style.backgroundImage = "url('./img/background.gif')";
+    btn.style.display = "none";
+  },
+  conexion: function conexion() {
 
     // Obtener la instancia del objeto XMLHttpRequest
     xmlhttp = new XMLHttpRequest();
-
-
     // Preparar la funcion de respuesta
     xmlhttp.onreadystatechange = function () {
       if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -14,6 +16,7 @@ var app = {
         var objeto_json = JSON.parse(jsonResponse);
 
         document.getElementById("fname").value = objeto_json.nombre;
+        document.getElementById("titulo").innerHTML = objeto_json.nombre;
         document.getElementById("lname").value = objeto_json.apellidos;
         document.getElementById("email").value = objeto_json.correo;
         document.getElementById("telefono").value = objeto_json.telefono;
@@ -25,16 +28,13 @@ var app = {
         document.getElementById("centro2").value = objeto_json.estudios[1].centro;
         document.getElementById("anio1").value = objeto_json.estudios[0].anioFin;
         document.getElementById("anio2").value = objeto_json.estudios[1].anioFin;
-
-
+        document.getElementById("fotoCV").src = objeto_json.foto;
       }
-
     }
-
     xmlhttp.open("GET", "cv.json", true);
     xmlhttp.send();
   }
-
 }
 
 window.onload = app.conexion;
+btn.addEventListener("click", app.contratar);

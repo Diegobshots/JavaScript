@@ -3,7 +3,10 @@ let btn = document.getElementById("botonaco");
 let app = {
   contratar: function contratar(){
     document.body.style.backgroundImage = "url('./img/background.gif')";
-    btn.style.display = "none";
+    btn.style.backgroundColor = "green";
+    btn.innerHTML = "¡Contratado!";
+    document.getElementById("fotoCV").style.border = "3px solid #00ff0d";
+    document.getElementById("fotoCV").style.animation = "rebota 0.3s infinite";
   },
   conexion: function conexion() {
 

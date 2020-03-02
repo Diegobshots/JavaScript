@@ -1,7 +1,7 @@
 
 body{
     background-color: #25274d;
-    padding: 15%;
+    padding: 10%;
 
     
 }
@@ -10,15 +10,12 @@ body{
     
 }
 .col-md-3{
-    /*background-image: linear-gradient(to right top, #ff9b00, #ff695d, #ff52a8, #c76be6, #0085ff);*/
     background-image: linear-gradient(to left bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
     padding: 4%;
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
 }
-.contact-info{
-    margin-top:10%;
-}
+
 .contact-info img{
     margin-bottom: 15%;
 }
@@ -47,7 +44,16 @@ body{
     width: 180px;
     border: 3px solid white;
 }
+.imagen{
+    position: relative;
+    animation: rebota 1s infinite;
+}
+@keyframes rebota{
+    0% { top:0px;}
+  50%  { top:-10px;}
+  100% { top:0px;}
+}
 .titulo{
     font-family: 'Raleway', sans-serif;
-    font-size: 2vw;
+    font-size: 35px;
 }

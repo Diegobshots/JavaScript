@@ -19,11 +19,13 @@
     "estudios": [
         {
             "titulo": "ASIR",
+            "centro": "IES Arcipreste de Hita",
             "anioFin": 2017,
             "experiencia en sector": "si"
         },
         {
             "titulo": "DAW",
+            "centro": "IES Arcipreste de Hita",
             "anioFin": 2020,
             "experiencia en sector": "no"
         }

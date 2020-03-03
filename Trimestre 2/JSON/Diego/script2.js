@@ -17,7 +17,7 @@ let app = {
                 document.getElementById("titulo").innerHTML = contenidoJson.datosPersonales[1].nombre;
                 document.getElementById("lname").value = contenidoJson.datosPersonales[2].apellidos;
                 document.getElementById("email").value = contenidoJson.datosPersonales[3].correo;
-                document.getElementById("telefono").value = contenidoJson.telefono;
+                document.getElementById("telefono").value = contenidoJson.datosPersonales[4].telefono;
                 return contenidoJson;
             })
             .then(contenidoJson => {

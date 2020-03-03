@@ -1,10 +1,15 @@
 {
-    "foto": "./img/DiegoBlanco.jpg",
-    "nombre": "Diego",
-    "apellidos": "Blanco López",
-    "correo": "diegoclaseinfor@gmail.com",
-    "telefono": 660764358,
-    "permiso": "Carnet de conducir - B2",
+    "datosPersonales": [
+        
+            {"foto": "./img/DiegoBlanco.jpg"},
+            {"nombre": "Diego"},
+            {"apellidos": "Blanco López"},
+            {"correo": "diegoclaseinfor@gmail.com"},
+            {"telefono": 660764358},
+            {"permiso": "Carnet de conducir - B2"}
+        
+    ],
+    
     "idiomas": [
         {
             "nombre": "Inglés",

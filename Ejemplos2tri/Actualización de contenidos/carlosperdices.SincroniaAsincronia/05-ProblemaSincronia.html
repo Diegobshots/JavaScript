@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*Ejemplo 1.  Código sincrono*/
+        console.log("Primero");
+        console.log("Segundo");
+        
+        /*Ejemplo 2.  Código sincrono*/
+        var lista=["Hala", "Madrid", "Campeon", 14];
+
+        for (var i=0;i<lista.length;i++) {
+            console.log(lista[i]);
+        }
+        console.log ("Fin recorrido lista");
+
+        /* Ejemplo 3. Función setTimeout */
+
+        /* Con este ejemplo podemos ver claramente como se muestra por consola antes
+        "Fin del ejemplo 3" que el texto "Un segundo" */
+        /*Simulación de la asincronia con setTiemOut*/
+
+        var proceso = () => {
+            console.log("Proceso que se ejecuta dentro del setTimeOut");
+        }
+
+        setTimeout(() => {
+            //console.log("Un segundo");
+            proceso();
+        }, 1000);
+        
+        console.log("Fin del ejemplo 3");
+        //Como vemos por consola, se ejecuta primero el Fin del ejemplo 3 que el mensaje dentro
+        //de la función callback
+    
+    </script>
+</body>
+</html>

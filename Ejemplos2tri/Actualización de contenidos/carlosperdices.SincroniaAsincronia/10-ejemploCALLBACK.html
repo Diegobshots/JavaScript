@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btnParametros">Callback con parámetros</button>
+    <button id="btnBasicos">Callback Básicos</button>
+
+    <script>
+        var btnParams=document.getElementById("btnParametros");
+        var btnParams=document.getElementById("btnBasicos");
+
+        btnParams.addEventListener("click",fParams);
+        btnBasicos.addEventListener("click",fBasicos);
+
+        //**** CALLBACK ****
+        console.log("USO DE CALLBACK");
+        
+        var paso1 = (callback) => {
+            setTimeout(() => {
+                console.log("Paso 1. Callback");
+                callback();
+            }, 3000);
+        }
+
+        var paso2 = () => {
+            console.log("Paso 2. Callback");
+        }
+        
+        //Nota: Fijate que que invoco "llamo" a la función paso2, pero no la ejecuto (NO hay paréntesis)
+        paso1(paso2);
+
+        function fParams() {
+            console.clear();
+            console.log("************* CALLBACK CON PARÁMETROS *******")
+            
+            /* CALLBACK CON PARÁMETROS*/
+            function paso1(fn) {
+                var nombre = "Clase";
+                fn(nombre);
+            }
+
+            paso1(function(nom) {
+                console.log("hola " + nom);
+            });  // "hola clase"
+        }
+
+        function fBasicos() {
+            var a=3;
+            var b=4;
+            Sumar(a, b, function(r){
+                console.log('El resultado es ' + r);
+            })
+
+        }
+
+
+        console.log("Encadenamiento en las promesas");
+        var a=3;
+        var b=4;
+        
+        Sumar(a, b, function(r){
+            console.log('El resultado es ' + r);
+            restar(r, function(r){
+                    console.log('El resultado es ' + r);
+                multiplicar(r, function(r){
+                    console.log('El resultado es ' + r);
+                    dividir(r, function(r){
+                        console.log('El resultado es ' + r);
+                    })
+                })
+             })
+
+        })
+        function Sumar(a, b, callback){
+           return callback(a+b);
+        }
+        function restar(r, callback){
+           return callback(r-1);
+        }
+        function multiplicar(r, callback){
+           return callback(r*2);
+        }
+        function dividir(r, callback){
+           return callback(r/2);
+        }
+    </script>
+</body>
+</html>

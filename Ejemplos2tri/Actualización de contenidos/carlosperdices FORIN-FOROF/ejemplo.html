@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [4 ,9, 5, 7];
+        //Indica posiciones
+        for (let i in arr) {
+            console.log("Posición",i); // logs "0", "1", "2", "3"
+            //Si quiero sacar su valor sería
+            console.log ("Valor de las distintas posiciones",arr[i]);
+        }
+        //Indica el valor
+        console.log ("Con for of Saco sus valores... como se puede observar se ahorra mucho código");
+        for (let i of arr) {
+            console.log(i); // logs "3", "5", "7"
+        }
+    </script>
+</body>
+</html>

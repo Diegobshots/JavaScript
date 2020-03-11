@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="sinEncadenamiento">Sin encadenamiento</button>
+    <button id="conEncadenamiento">Con encadenamiento</button>
+    <script>
+        var objSinEncadenamiento=document.getElementById("sinEncadenamiento");
+        var objConEncadenamiento=document.getElementById("conEncadenamiento");
+        objSinEncadenamiento.addEventListener("click",fSinEncadenamiento);
+        objConEncadenamiento.addEventListener("click",fConEncadenamiento);
+
+        function fSinEncadenamiento () {
+            function getPosts() {
+                return new Promise(function(resolve, reject) {
+                var req = new XMLHttpRequest();
+                    req.open('GET', 'https://jsonplaceholder.typicode.com/posts');
+
+                    req.onload = function() {
+                    if (req.status == 200) {
+                        resolve(JSON.parse(req.response));
+                    }
+                    else {
+                        reject();
+                    }
+                    };
+
+                    req.send();
+                })
+            }
+
+            getPosts().then(r =>{
+                console.log(r);
+            }).catch(() => {
+                console.log('Algo salió mal');
+            });
+        }
+        function fConEncadenamiento () {
+            function getPosts() {
+                return new Promise(function(resolve, reject) {
+                var req = new XMLHttpRequest();
+                    req.open('GET', 'https://jsonplaceholder.typicode.com/posts');
+
+                    req.onload = function() {
+                    if (req.status == 200) {
+                        resolve(JSON.parse(req.response));
+                    }
+                    else {
+                        reject();
+                    }
+                    };
+
+                    req.send();
+                })
+            }
+
+            let postId = 1;
+            getPosts().then(r => {
+                return r;
+            }).then(r => {
+                console.log(r.find(x => x.id === 1));
+            })
+        }
+
+
+
+    </script>
+</body>
+</html>

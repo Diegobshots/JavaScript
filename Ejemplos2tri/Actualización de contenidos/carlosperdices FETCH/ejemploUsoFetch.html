@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="fetchBasica">Fetch Basica</button>
+    <button id="fetchTexto">Fetch Texto</button>
+    <button id="fetchOpaco">Fetch Nocors</button>
+    <button id="fetchPOST">Fetch POST</button>
+    <script>
+        var fetchBasica = document.getElementById("fetchBasica");
+        var fetchTexto = document.getElementById("fetchTexto");
+        var fetchOpaco = document.getElementById("fetchOpaco");
+        var fetchPOST = document.getElementById("fetchPOST");
+
+
+        fetchBasica.addEventListener("click",fBasica);
+        fetchTexto.addEventListener("click",fTexto);
+        fetchOpaco.addEventListener("click",fOpaco);
+        fetchPOST.addEventListener("click",fPOST);
+
+        function fBasica (){
+            var url = 'http://date.jsontest.com';
+            /*
+            Se ha realizado una petición a la URL indicada. Por defecto, es de tipo GET. 
+            Este proceso genera una promesa a la espera de que el servidor conteste con sus correspondientes cabeceras.
+            */       
+            fetch (url)
+                //Se abre un canal que recibe la respuesta completa y la transforma en un JSON.
+                .then( datos => datos.json() )
+                //Con la promesa resuelta trabajamos con los datos
+                .then( data => jugamosConDatos (data))
+                .catch( e => console.error( 'Error' ) );
+        }
+        
+
+        function fTexto () {
+            var url = 'https://code.jquery.com/jquery-3.1.1.slim.min.js';
+ 
+            fetch( url )
+                .then( response => response.text() )
+                .then( data => console.log( data ) );    
+        }
+
+        function fOpaco (){
+            var url = 'https://code.jquery.com/jquery-3.1.1.slim.min.js';
+            params = {
+                mode: 'no-cors'
+            };
+        
+            fetch( url, params )
+                .then( response => response.text() )
+                .then( data => console.log( data ) );  
+                
+        }
+
+        function fPOST (){
+            //Nota 1: Los datos se tienen que enviar como una cadena de texto de ahí esl uso del método stringify
+            //Nota 2: código anterior devolverá un mensaje de error por parte del servicio JSONTest porque no acepta el método POST. 
+            //        Sin embargo, se puede comprobar en la consola del navegador como la petición es correcta.
+            var url = 'http://md5.jsontest.com/', 
+            params = {
+                method: 'POST',
+                body: JSON.stringify( {
+                    text: 'example_text_post'
+                } )    
+            };    
+            fetch( url, params )
+                .then( response => response.text() )
+                .then( data => console.log( data ) );  
+        }
+
+        function jugamosConDatos(data){
+            console.log ("Datos en bruto",data)
+            console.log ("Fecha",data.date);
+            console.log ("Milisegundos",data.milliseconds_since_epoch);
+            console.log ("time",data.time);
+        }
+    </script>
+</body>
+</html>

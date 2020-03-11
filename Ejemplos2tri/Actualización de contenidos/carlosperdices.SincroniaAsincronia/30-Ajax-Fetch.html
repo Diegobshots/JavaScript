@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function obtenerTexto(url) {
+            return new Promise( (resolve, reject) => {
+                fetch(url)
+                .then(response => {
+                    if(response.ok) {
+                        return response.text();
+                    }
+                    reject('No se ha podido acceder a ese recurso. Status: ' + response.status);
+                })
+                .then( texto => resolve(texto) )
+                .catch (err => reject(err) );
+            });
+        }
+
+        obtenerTexto('test.txt')
+            .then( texto => console.log(texto) )
+            .catch( err => console.log('ERROR', err) )
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="contenedor"></div>
+    <!-- Trabajando con JSON-->
+    <script>
+        //Observa que la clave puede estar entre comillas o no
+        let jsonBasico = {
+            nombre:"Carlos", 
+            "apellidos":"Perdices", 
+            edad:44};
+
+        //Observa como podemos asignar a una clave una función
+        let jsonConFunciones = {
+            nombre:"Carlos", 
+            edad:44,
+            saludar: function (){
+                console.log ("Hola",this.nombre);
+            }};
+        
+        let personas = [
+            {nombre:"Benzema", equipo:"RM"},
+            {nombre:"Marcelo", equipo:"RM"},
+            {nombre:"Iker", equipo:"RM"},
+            {nombre:"Buitre", equipo:"RM"},
+            {nombre:"Michel", equipo:"RM"}
+        ]
+
+        console.log("Contenido jsonBasico",jsonBasico);
+
+        console.log ("Trabajando con JSON básico",jsonBasico.nombre,jsonBasico.edad);
+
+        console.log ("JSON con funciones", jsonConFunciones.saludar());
+       
+        let pintar= "";
+        for (let contador=0;contador<personas.length;contador++){
+            pintar += '<li>' + "Contando Personas" + " " + personas[contador].nombre + '</li>';
+            //console.log( ${personas[contador].nombre} ;
+        }
+        var contenedor = document.getElementById("contenedor");
+        contenedor.innerHTML = pintar;
+     
+        
+    </script>
+</body>
+</html>

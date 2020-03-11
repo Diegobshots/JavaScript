@@ -9,7 +9,9 @@ let app = {
     },
     rellenaCV: function rellena() {
         fetch('cv.json')
-            .then(data => data.json())
+            .then(data => {
+                data.json()
+            })
             .then(contenidoJson => {
                 //Cargamos datos personales
                 document.getElementById("fotoCV").src = contenidoJson.datosPersonales[0].foto;
